@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<script>
+let userAgent = window.navigator.userAgent.toLowerCase(),
+    safari = /safari/.test( userAgent ),
+    chrome = /chrome/.test(userAgent),
+    firefox = /mozilla/.test(userAgent),
+    ios = /iphone|ipod|ipad/.test( userAgent ),
+    android = /android/.test(userAgent),
+    windows = /windows/.test(userAgent),
+    linux = /linux/.test(userAgent),
+    mac = /Macintosh/.test(userAgent);
+
+if( ios ) {
+    if ( safari ) {
+        //safari browser on ios
+    } else if ( chrome ) {
+        //chrome browser on ios
+    } else if ( firefox ) {
+        //firefox browser on ios
+    } else if ( !safari && !firefox !chrome ) {
+        //webview or other browser
+    }
+
+}else if(android){
+    if ( chrome ) {
+        //chrome browser on android
+    } else if ( firefox ) {
+        //firefox browser on android
+    } else if ( !firefox !chrome ) {
+        //webview or embeded browser
+    }
+}else if(windows){
+
+}else if(linux){
+
+}else if(mac){
+
+} else {
+    //unkown OS
+    console.info('unknow userAgent: '+userAgent);
+    alert('please ask to the developper to add this UA: '+ userAgent+' in the list.\n\r <a href="mailto:mickael@lehoux.net">click here</a>');
+}
+</script>
+</html>
