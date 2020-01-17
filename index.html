@@ -2,47 +2,91 @@
 <html>
 
 <script>
-let userAgent = window.navigator.userAgent.toLowerCase(),
-    safari = /safari/.test( userAgent ),
-    chrome = /chrome/.test(userAgent),
-    firefox = /mozilla/.test(userAgent),
-    ie = /internet explorer/.test(userAgent),
-    edge = /edge/.test(userAgent),
-    ios = /iphone|ipod|ipad/.test( userAgent ),
-    android = /android/.test(userAgent),
-    windows = /windows/.test(userAgent),
-    linux = /linux/.test(userAgent),
-    mac = /Macintosh/.test(userAgent);
+    let userAgent = window.navigator.userAgent.toLowerCase(),
+        safari = /safari/.test(userAgent),
+        chrome = /chrome/.test(userAgent),
+        firefox = /mozilla/.test(userAgent),
+        ie = /internet explorer/.test(userAgent),
+        edge = /edge/.test(userAgent),
+        ios = /iphone|ipod|ipad/.test(userAgent),
+        android = /android/.test(userAgent),
+        windows = /windows/.test(userAgent),
+        linux = /linux/.test(userAgent),
+        mac = /Macintosh/.test(userAgent);
+    console.debug(userAgent);
+    if (ios) {
+        if (safari) {
+            //safari browser on ios
+            console.debug('safari browser on ios');
+        } else if (chrome) {
+            //chrome browser on ios
+            console.debug('chrome browser on ios');
+        } else if (firefox) {
+            //firefox browser on ios
+            console.debug('firefox browser on ios');
+        } else if (!safari && !firefox && !chrome) {
+            //webview or other browser
+            console.debug('webview or other browser');
+        }
 
-if( ios ) {
-    if ( safari ) {
-        //safari browser on ios
-    } else if ( chrome ) {
-        //chrome browser on ios
-    } else if ( firefox ) {
-        //firefox browser on ios
-    } else if ( !safari && !firefox && !chrome ) {
-        //webview or other browser
+    } else if (android) {
+        if (chrome) {
+            //chrome browser on android
+            console.debug('chrome browser on android');
+        } else if (firefox) {
+            //firefox browser on android
+            console.debug('firefox browser on android');
+        } else if (!firefox && !chrome) {
+            //webview or embeded browser on android
+            console.debug('webview or embeded browser on android');
+        }
+    } else if (windows) {
+        if (chrome) {
+            //chrome browser on windows
+            console.debug('chrome browser on windows');
+        } else if (firefox) {
+            //firefox browser on windows
+            console.debug('firefox browser on windows');
+        } else if (ie) {
+            //ie browser on windows
+            console.debug('ie browser on windows');
+        } else if (edge) {
+            //edge browser on windows
+            console.debug('edge browser on windows');
+        } else if (!firefox && !chrome && !ie && !edge) {
+            //webview or embeded browser on windows
+            console.debug('webview or embeded browser on windows');
+        }
+    } else if (linux) {
+        if (chrome) {
+            //chrome browser on linux
+            console.debug('chrome browser on linux');
+        } else if (firefox) {
+            //firefox browser on linux
+            console.debug('firefox browser on linux');
+        } else if (!firefox && !chrome) {
+            //webview or embeded browser on linux
+            console.debug('webview or embeded browser on linux');
+        }
+    } else if (mac) {
+        if (safari) {
+            //safari browser on mac
+            console.debug('safari browser on mac');
+        } else if (chrome) {
+            //chrome browser on mac
+            console.debug('chrome browser on mac');
+        } else if (firefox) {
+            //firefox browser on mac
+            console.debug('firefox browser on mac');
+        } else if (!firefox && !chrome) {
+            //webview or embeded browser on mac
+            console.debug('webview or embeded browser on mac');
+        }
+    } else {
+        //unkown OS
+        console.info('unknow userAgent: ' + userAgent);
+        alert('please ask to the developper to add this UA: ' + userAgent + ' in the list.\n\r <a href="mailto:mickael@lehoux.net">click here</a>');
     }
-
-}else if(android){
-    if ( chrome ) {
-        //chrome browser on android
-    } else if ( firefox ) {
-        //firefox browser on android
-    } else if ( !firefox && !chrome ) {
-        //webview or embeded browser
-    }
-}else if(windows){
-
-}else if(linux){
-
-}else if(mac){
-
-} else {
-    //unkown OS
-    console.info('unknow userAgent: '+userAgent);
-    alert('please ask to the developper to add this UA: '+ userAgent+' in the list.\n\r <a href="mailto:mickael@lehoux.net">click here</a>');
-}
 </script>
+
 </html>
