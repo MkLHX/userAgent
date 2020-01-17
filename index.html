@@ -6,6 +6,8 @@ let userAgent = window.navigator.userAgent.toLowerCase(),
     safari = /safari/.test( userAgent ),
     chrome = /chrome/.test(userAgent),
     firefox = /mozilla/.test(userAgent),
+    ie = /internet explorer/.test(userAgent),
+    edge = /edge/.test(userAgent),
     ios = /iphone|ipod|ipad/.test( userAgent ),
     android = /android/.test(userAgent),
     windows = /windows/.test(userAgent),
@@ -19,7 +21,7 @@ if( ios ) {
         //chrome browser on ios
     } else if ( firefox ) {
         //firefox browser on ios
-    } else if ( !safari && !firefox !chrome ) {
+    } else if ( !safari && !firefox && !chrome ) {
         //webview or other browser
     }
 
@@ -28,7 +30,7 @@ if( ios ) {
         //chrome browser on android
     } else if ( firefox ) {
         //firefox browser on android
-    } else if ( !firefox !chrome ) {
+    } else if ( !firefox && !chrome ) {
         //webview or embeded browser
     }
 }else if(windows){
