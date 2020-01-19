@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div id="ua"></div>
+    </main>
+    <footer></footer>
+</body>
 <script>
+    let ua = document.getElementById('ua');
     let userAgent = window.navigator.userAgent.toLowerCase(),
         safari = /safari/.test(userAgent),
-        chrome = /chrome/.test(userAgent),
-        firefox = /mozilla/.test(userAgent),
-        ie = /internet explorer/.test(userAgent),
-        edge = /edge/.test(userAgent),
+        // mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/79.0.3945.117 safari/537.36
+        chro = /^(?=.*\bmozilla\b\/)(?=.*\bapplewebkit\b\/)(?=.*\bchrome\b\/)(?=.*\bsafari\b\/).*$/.test(userAgent),
+        // mozilla/5.0 (windows nt 10.0; win64; x64; rv:72.0) gecko/20100101 firefox/72.0
+        firefox = /^(?=.*\bmozilla\b\/)(?=.*\bgecko\b\/)(?=.*\bfirefox\b\/).*$/.test(userAgent),
+        // mozilla/5.0 (windows nt 10.0; wow64; trident/7.0; .net4.0c; .net4.0e; .net clr 2.0.50727; .net clr 3.0.30729; .net clr 3.5.30729; tablet pc 2.0; rv:11.0) like gecko
+        ie = /^(?=.*\bmozilla\b\/)(?=.*\bgecko\b).*$/.test(userAgent),
+        // mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.102 safari/537.36 edge/18.18363
+        edge = /^(?=.*\bmozilla\b\/)(?=.*\bapplewebkit\b\/)(?=.*\bchrome\b\/)(?=.*\bsafari\b\/)(?=.*\bedge\b\/).*$/.test(userAgent),
         ios = /iphone|ipod|ipad/.test(userAgent),
         android = /android/.test(userAgent),
         windows = /windows/.test(userAgent),
@@ -17,70 +33,84 @@
     if (ios) {
         if (safari) {
             //safari browser on ios
-            console.debug('safari browser on ios');
-        } else if (chrome) {
+            ua.innerHTML = 'safari browser on ios';
+        } else if (chro) {
             //chrome browser on ios
             console.debug('chrome browser on ios');
+            ua.innerHTML = 'chrome browser on ios';
         } else if (firefox) {
             //firefox browser on ios
             console.debug('firefox browser on ios');
-        } else if (!safari && !firefox && !chrome) {
-            //webview or other browser
-            console.debug('webview or other browser');
+            ua.innerHTML = 'firefox browser on ios';
+        } else if (!safari && !firefox && !chro) {
+            //webview or embeded browser
+            console.debug('webview or embeded browser');
+            ua.innerHTML = 'webview or embeded browser on ios';
         }
-
     } else if (android) {
-        if (chrome) {
+        if (chro) {
             //chrome browser on android
             console.debug('chrome browser on android');
         } else if (firefox) {
             //firefox browser on android
             console.debug('firefox browser on android');
-        } else if (!firefox && !chrome) {
+        } else if (!firefox && !chro) {
             //webview or embeded browser on android
             console.debug('webview or embeded browser on android');
         }
     } else if (windows) {
-        if (chrome) {
+        if (chro) {
             //chrome browser on windows
             console.debug('chrome browser on windows');
+            ua.innerHTML = 'chrome browser on windows'
         } else if (firefox) {
             //firefox browser on windows
             console.debug('firefox browser on windows');
+            ua.innerHTML = 'firefox browser on windows';
         } else if (ie) {
             //ie browser on windows
             console.debug('ie browser on windows');
+            ua.innerHTML = 'ie browser on windows';
         } else if (edge) {
             //edge browser on windows
             console.debug('edge browser on windows');
-        } else if (!firefox && !chrome && !ie && !edge) {
+            ua.innerHTML = 'edge browser on windows';
+        } else if (!firefox && !chro && !ie && !edge) {
             //webview or embeded browser on windows
             console.debug('webview or embeded browser on windows');
+            ua.innerHTML = 'webview or embeded browser on windows';
         }
     } else if (linux) {
-        if (chrome) {
+        if (chro) {
             //chrome browser on linux
             console.debug('chrome browser on linux');
+            ua.innerHTML = 'chrome browser on linux';
         } else if (firefox) {
             //firefox browser on linux
             console.debug('firefox browser on linux');
-        } else if (!firefox && !chrome) {
+            ua.innerHTML = 'firefox browser on linux';
+        } else if (!firefox && !chro) {
             //webview or embeded browser on linux
             console.debug('webview or embeded browser on linux');
+            ua.innerHTML = 'webview or embeded browser on linux';
         }
     } else if (mac) {
         if (safari) {
             //safari browser on mac
             console.debug('safari browser on mac');
-        } else if (chrome) {
+            ua.innerHTML = safari + 'browser on mac';
+        } else if (chro) {
             //chrome browser on mac
             console.debug('chrome browser on mac');
+            ua.innerHTML = 'chrome browser on mac';
         } else if (firefox) {
             //firefox browser on mac
             console.debug('firefox browser on mac');
-        } else if (!firefox && !chrome) {
+            ua.innerHTML = firefox + 'browser on mac';
+        } else if (!firefox && !chro) {
             //webview or embeded browser on mac
             console.debug('webview or embeded browser on mac');
+            ua.innerHTML = 'webview or embeded browser on mac';
         }
     } else {
         //unkown OS
