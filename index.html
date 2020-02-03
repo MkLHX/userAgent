@@ -112,7 +112,7 @@
         let userAgent = window.navigator.userAgent.toLowerCase();
         console.debug(userAgent);
         let oss = ['windows', 'linux', 'android', 'ios', 'iphone', 'ipad', 'ipod', 'mac', 'playstation'];
-        let browsers = ['chrome', 'safari', 'mozilla', 'internet explorer', 'edge'];
+        let browsers = ['chrome', 'safari', 'mozilla', 'internet explorer', 'edge', 'OPR'];
         $.each(oss, function (i, os) {
             ost = new RegExp(os);
             if (ost.test(userAgent)) {
