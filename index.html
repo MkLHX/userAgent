@@ -1,92 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
-<script>
-    let userAgent = window.navigator.userAgent.toLowerCase(),
-        safari = /safari/.test(userAgent),
-        chrome = /chrome/.test(userAgent),
-        firefox = /mozilla/.test(userAgent),
-        ie = /internet explorer/.test(userAgent),
-        edge = /edge/.test(userAgent),
-        ios = /iphone|ipod|ipad/.test(userAgent),
-        android = /android/.test(userAgent),
-        windows = /windows/.test(userAgent),
-        linux = /linux/.test(userAgent),
-        mac = /Macintosh/.test(userAgent);
-    console.debug(userAgent);
-    if (ios) {
-        if (safari) {
-            //safari browser on ios
-            console.debug('safari browser on ios');
-        } else if (chrome) {
-            //chrome browser on ios
-            console.debug('chrome browser on ios');
-        } else if (firefox) {
-            //firefox browser on ios
-            console.debug('firefox browser on ios');
-        } else if (!safari && !firefox && !chrome) {
-            //webview or other browser
-            console.debug('webview or other browser');
-        }
+<head>
+    <meta charset="UTF-8" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <meta property="og:title" content="User Agent Detector" />
+    <meta property="og:type" content="Tool" />
+    <meta property="og:url" content="https://mklhx.github.io/userAgent" />
+    <meta property="og:image" content="https://mklhx.github.io/userAgent/userAgent.png" />
+    <meta property="og:image:alt" content="https://mklhx.github.io/userAgent" />
+    <meta name="author" content="userAgent detector made by MkLHX">
 
-    } else if (android) {
-        if (chrome) {
-            //chrome browser on android
-            console.debug('chrome browser on android');
-        } else if (firefox) {
-            //firefox browser on android
-            console.debug('firefox browser on android');
-        } else if (!firefox && !chrome) {
-            //webview or embeded browser on android
-            console.debug('webview or embeded browser on android');
+    <meta content="User Agent detector" name="keywords">
+    <meta content="" property="og:description"/>
+    <meta content="" name="description">
+    <meta content="UserAgent Detector" property="og:site_name"/>
+    <link rel="canonical" href="https://mklhx.github.io/userAgent"/>
+    <script type='application/ld+json'>
+        {
+            "@context":"https://schema.org",
+            "@type":"Tool",
+            "@id":"UserAgent Detector",
+            "url":"https://mklhx.github.io/userAgent/",
+            "sameAs":[
+                "https://mklhx.github.io/userAgent/",
+                "https://github.com/MkLHX/userAgent/",
+            ],
+            "name":"UserAgent Detector",
+            "logo":{
+                "@type": "ImageObject",
+                "url":"https://mklhx.github.io/userAgent/userAgent.png"
+            },
         }
-    } else if (windows) {
-        if (chrome) {
-            //chrome browser on windows
-            console.debug('chrome browser on windows');
-        } else if (firefox) {
-            //firefox browser on windows
-            console.debug('firefox browser on windows');
-        } else if (ie) {
-            //ie browser on windows
-            console.debug('ie browser on windows');
-        } else if (edge) {
-            //edge browser on windows
-            console.debug('edge browser on windows');
-        } else if (!firefox && !chrome && !ie && !edge) {
-            //webview or embeded browser on windows
-            console.debug('webview or embeded browser on windows');
+    </script>
+    <title>User Agent detector</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="icon" 
+        type="image/png" 
+        href="https://cdn.onlinewebfonts.com/svg/img_424956.svg">
+    <style>
+        body,
+        html {
+            height: 100%;
         }
-    } else if (linux) {
-        if (chrome) {
-            //chrome browser on linux
-            console.debug('chrome browser on linux');
-        } else if (firefox) {
-            //firefox browser on linux
-            console.debug('firefox browser on linux');
-        } else if (!firefox && !chrome) {
-            //webview or embeded browser on linux
-            console.debug('webview or embeded browser on linux');
-        }
-    } else if (mac) {
-        if (safari) {
-            //safari browser on mac
-            console.debug('safari browser on mac');
-        } else if (chrome) {
-            //chrome browser on mac
-            console.debug('chrome browser on mac');
-        } else if (firefox) {
-            //firefox browser on mac
-            console.debug('firefox browser on mac');
-        } else if (!firefox && !chrome) {
-            //webview or embeded browser on mac
-            console.debug('webview or embeded browser on mac');
-        }
-    } else {
-        //unkown OS
-        console.info('unknow userAgent: ' + userAgent);
-        alert('please ask to the developper to add this UA: ' + userAgent + ' in the list.\n\r <a href="mailto:mickael@lehoux.net">click here</a>');
-    }
-</script>
+    </style>
+</head>
+
+<body>
+    <main class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-6 text-center mx-auto">
+                <div class="card shadow p-5 border-0">
+                    <div class="card-content d-flex justify-content-between align-items-center">
+                        <i class="fas fa-user-secret fa-5x"></i>
+                        <p class="text-muted mb-0">
+                            You're <strong><span class="browser">xxxx</span></strong> agent on <strong><span
+                                    class="os">xxxx</span></strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-footer border-0">
+                    <small>
+                        <em>
+                            Missing device or browser?
+                            <a href="https://github.com/MkLHX/userAgent/issues" target="_blank">click here</a>
+                            for ask to update the list
+                        </em>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/MkLHX/boot4modal/boot4modal.js"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5d4178fe5c.js" crossorigin="anonymous"></script>
+    <script>
+        let userAgent = window.navigator.userAgent.toLowerCase();
+        console.debug(userAgent);
+        let oss = ['windows', 'linux', 'android', 'ios', 'iphone', 'ipad', 'ipod', 'mac', 'playstation'];
+        let browsers = ['chrome', 'safari', 'mozilla', 'internet explorer', 'edge'];
+        $.each(oss, function (i, os) {
+            ost = new RegExp(os);
+            if (ost.test(userAgent)) {
+                $.each(browsers, function (idx, browser) {
+                    bt = new RegExp(browser);
+                    if (bt.test(userAgent)) {
+                        $('.browser').text(browser.toUpperCase());
+                        $('.os').text(os.toUpperCase());
+                        return false;
+                    }
+                    // else {
+                    //     //unkown browser       
+                    //     console.info('unknow browser: ' + os);
+                    //     boot4.alert({
+                    //         msg: 'please ask to the developper to add this browser: ' + browser + ' in the list.\n\r <a href="https://github.com/MkLHX/userAgent/issues">click here</a>'
+                    //     });
+                    // }
+                });
+                return false;
+            }
+            // else {
+            //     //unkown OS
+            //     console.info('unknow os: ' + os);
+            //     boot4.alert({
+            //         msg: 'please ask to the developper to add this OS: ' + os + ' in the list.\n\r <a href="https://github.com/MkLHX/userAgent/issues">click here</a>'
+            //     });
+            // }
+        });
+    </script>
+</body>
 
 </html>
